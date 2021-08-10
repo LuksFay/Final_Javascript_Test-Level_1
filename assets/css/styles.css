@@ -70,15 +70,13 @@
 
 
 #banner_id{
-    background: url(/assets/resources/PokemonBG.jpg);
+    background: url(../resources/PokemonBG.jpg);
     background-repeat: no-repeat;
 }
 
 .banner_div{
     height: 700px;
-    justify-content: end;
-    
-    
+    justify-content: flex-end;
 }
 .banner_welcome_div{ 
     flex-direction: column;
