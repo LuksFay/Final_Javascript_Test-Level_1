@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo Chettan 2', cursive;
+    user-select: none;
+}
+.container-fluid{
+    max-width: 100%;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.header_class, .header_pokedex_web_logo, .header_nav_bar_list ul, .banner_div, .banner_welcome_div{
+    display: flex;
+}
+
+
+
+/* ------------------------------------------------------------- */
+
+
+
+/* HEADER */
+
+    
+
+.header_class{   
+    top: 0;
+    height: 60px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    width: 1862px;
+    transition: 1.5s;
+    
+}
+.header_pokedex_web_logo{
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    
+}
+.header_pokedex_web_logo img{
+    width: 60px;
+}
+.header_pokedex_web_logo p{
+    font-weight: 500;
+    font-size: 1.5em;
+}
+.header_nav_bar_list ul{
+    gap: 30px;
+    list-style: none;
+    cursor: pointer;
+}
+.header_nav_bar_list li:hover{
+    color: #fff;
+    
+}
+.history{
+    transition: 1.5s;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+
+
+/* ------------------------------------------------------------- */
+
+
+
+#banner_id{
+    background: url(/assets/resources/PokemonBG.jpg);
+    background-repeat: no-repeat;
+}
+
+.banner_div{
+    height: 700px;
+    justify-content: end;
+    
+    
+}
+.banner_welcome_div{ 
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    gap: 20px;
+    margin-top: 150px;
+}
+.banner_welcome_div h1{
+    font-size: 4em;
+}
+.banner_welcome_div button{
+    margin-top: 5px;
+    padding: 15px;
+    font-size: 1em;
+    width: 20%;
+    border-radius: 40px;
+    background-color: #00b3dc;
+    border: none;
+    color: #fff;
+}
+.banner_welcome_div p{
+    font-size: 1.3em;
+}
+.banner_welcome_div button:active{
+    transform: translateY(5px);
+}
+
+
+/* ------------------------------------------------------------- */
+
+
+
+
+.white-space{
+    height: 1200px;
+}
+
+
+/* ------------------------------------------------------------- */
+
+                           /* JS CLASS */
+
+/* ------------------------------------------------------------- */
+
+
+.scroll{
+    transition: 1.5s;
+    position: fixed;
+    background-color: #fff;
+}
+.scroll ul li:hover{
+    color: #981701;
+}
+.changeColor{
+    transition: 1.5s;
+    color: #981701;
+}
+.margin_top_class{
+    position: fixed;
+    margin-top: 200px;
+}
