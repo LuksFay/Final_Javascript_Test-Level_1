@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/resources/pokeball_icon.ico">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Pokedex</title>
+    <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="icon" href="assets/resources/pokeball_icon.ico">
+    <title>pokedex</title>
 </head>
 <body>
-    
-    
-    <!-- NAV BAR STICKY -->
-    
-    
-    
-    <!-- NAV BAR STICKY -->
-    
-    <section id="banner_id" class="container-fluid">
+    <section id="header_Section">
         <div id="header_id" class="header_class container">
             <div class="header_pokedex_web_logo">
                 <img src="assets/resources/pokeball.png" alt="">
@@ -29,31 +22,28 @@
             <div class="header_nav_bar_list">
                 <ul>
                     <li>Home</li>
-                    <li class="history">History</li>
+                    <li>History</li>
                     <li>Videos</li>
-                    <li>Pokedex</li>
+                    <li  class="pokedex">Pokedex</li>
                     <li>My favs</li>
                 </ul>
             </div>
          </div>
-        <div class="banner_div container">
-            <div class="banner_welcome_div">
-                <h1>Welcome to Pokedex</h1>
-                <p>Join our comunity to find Pokémon's news.</p>
-                <button>View more</button>
+    </section>
+
+    <section id="pokedex_section" class="container">
+        <div class="search_div">
+            <h1>Pokedex</h1>
+            <div>
+                <input type="text" class="search_bar_input">
+                <input type="submit" value="search" class="search_bar_submit">
             </div>
         </div>
     </section>
-
-    
-        <div class="white-space">
-
-        </div>
     
 
 
 
-
-    <script src="assets/javascript/scripts.js"></script>
+    <script src="assets/javascript/pokedex.js"></script>
 </body>
 </html>
