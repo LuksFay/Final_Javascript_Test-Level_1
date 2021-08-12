@@ -1,3 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Baloo Chettan 2', cursive;
+    user-select: none;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+  width: 60%;   
+}
+
+.header_class{ 
+    display: flex;  
+    height: 60px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+.header_pokedex_web_logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.header_pokedex_web_logo img{
+    width: 60px;
+}
+.header_pokedex_web_logo p{
+    font-weight: 500;
+    font-size: 1.5em;
+}
+.header_nav_bar_list ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    cursor: pointer;
+}
+.header_nav_bar_list li:hover{
+    color: #00b3dc
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #pokedex_section{
     text-align: center;
 }
@@ -7,7 +67,7 @@
 }
 .search_bar_input{
     height: 25px;
-    width: 550px;
+    width: 50%;
     border-radius: 20px;
     border: 0.1em solid #c0c0c0;
     padding:5px 15px;
@@ -15,7 +75,10 @@
 input:focus { 
     outline: none
 }
-.search_bar_submit{
+#search_bar_submit{
+    margin: 15px;
+}
+.button_style{
     height: 40px;
     width: 120px;
     font-size: 1em;
@@ -26,24 +89,22 @@ input:focus {
     color: #fff;
     text-align: center;
 }
-.search_bar_submit:active{
+.button_style:active{
     background-color: #00647a;
 }
 #pokemon_section{
     display: flex;
     justify-content: space-between;
-    gap: 20px;
     flex-wrap: wrap;
     margin-top: 80px;
+    
 }
 .pokemon_display{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid rgb(184, 149, 149);
-    width: 21%;
-    gap: 5px;
+    width: 25%;
     padding: 15px 0px;
 }
 .pokemon_name{
@@ -58,4 +119,19 @@ input:focus {
 img{
     background-color: #7ddcf141;
     border-radius: 100%;
+}
+
+@media (max-width: 1024px){
+    .header_nav_bar_list{
+        display: none;
+    }
+    .input_media{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #pokemon_section{
+        align-items:  center;
+        flex-direction: column;
+    }
 }
