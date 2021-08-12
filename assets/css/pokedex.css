@@ -30,7 +30,6 @@ input:focus {
     background-color: #00647a;
 }
 #pokemon_section{
-    
     display: flex;
     justify-content: space-between;
     gap: 20px;
