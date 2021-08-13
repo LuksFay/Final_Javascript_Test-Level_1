@@ -13,6 +13,10 @@
 .container{
   width: 60%;   
 }
+a{
+    color: #000;
+    text-decoration: none;
+}
 
 .header_class{ 
     display: flex;  
@@ -72,12 +76,13 @@ input:focus {
     border-radius: 20px;
     border: none;
     padding:5px 15px;
-    background-color: #00b3dc;
+    background: #00b3dc;
     color: #fff;
     text-align: center;
+    cursor: pointer;
 }
 .button_style:active{
-    background-color: #00647a;
+    background: #00647a;
 }
 #pokemon_section{
     display: flex;

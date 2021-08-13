@@ -14,7 +14,10 @@
 .header_class, .header_pokedex_web_logo, .header_nav_bar_list ul, .banner_div, .banner_welcome_div{
     display: flex;
 }
-
+a{
+    color: #000;
+    text-decoration: none;
+}
 
 
 /* ------------------------------------------------------------- */

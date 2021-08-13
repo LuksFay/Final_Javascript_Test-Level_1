@@ -1,9 +1,8 @@
 let header = document.getElementById('header_id');
 let history = document.querySelector('.history');
 let div = document.querySelector('#banner_id');
-window.onscroll = function(ev) {
-    if(window.scrollY === 0){
-        
+window.onscroll = function() {
+    if(window.scrollY === 0){  
         header.classList.remove('scroll');
         history.classList.remove('changeColor');
         div.style='height:700px';
