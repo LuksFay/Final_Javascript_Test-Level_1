@@ -4,15 +4,15 @@ const espacioParaCadaPokemon = document.querySelector('#pokemon_section'),
 
       
 
-let arrayDePokemonEnPantalla = []
-
+let arrayDePokemonEnPantalla = [];
 let cargando = document.createElement('p');
 cargando.textContent = 'CARGANDO...';
 espacioParaCadaPokemon.appendChild(cargando); 
 
 
 async function llamarPokemon() {
-    console.log('loading')
+    
+    console.log('loading');
     for(let i = 1 ; i < 152 ; i++ ){
         const urlApi = `https://pokeapi.co/api/v2/pokemon/${i}`
         const respuestaApi = await fetch(urlApi)
@@ -21,11 +21,13 @@ async function llamarPokemon() {
                 image: unPokemon.sprites.front_default,
                 id: unPokemon.id,
                 name: unPokemon.name,
-                type: unPokemon.types[0].type.name
+                type: unPokemon.types[0].type.name,
+                favorito: false
             })
     };
     console.log('load complete');
     cargando.style.display = 'none';
+
     representarPokemon(arrayDePokemonEnPantalla);
 };
 
@@ -40,46 +42,31 @@ function representarPokemon(arrayDePokemons) {
            <p class="pokemon_id">${pokemon.id}</p>
            <p class="pokemon_name">${pokemon.name}</p>
            <p class="pokemon_type">type:${pokemon.type}</p>
-           <button class="button_style addtofav_button" onclick="funcionClick(${pokemon.id})">add to favs</button>
+           <button class="button_style addtofav_button ${pokemon.favorito ? 'remove' : ''}" onclick="funcionStorage(${pokemon.id})">${pokemon.favorito ? 'remove' : 'add to favs'}</button>
        </div>
         `
     });
-// botonFav = document.querySelector('.addtofav_button');
-// botonFav.addEventListener('click', () => {
+}
+
+function funcionStorage(id){
+    let newArray = arrayDePokemonEnPantalla.map(unPokemon => {
+        if(unPokemon.id === id){
+            unPokemon.favorito = !unPokemon.favorito
+            return unPokemon
+        }else{
+            return unPokemon
+        }
+    })
+    let filtrados = newArray.filter(unPokemon =>
+        unPokemon.favorito === true
+    )
+    console.log(filtrados);
+    representarPokemon(newArray);
+    localStorage.setItem("pokemonFav", JSON.stringify(filtrados));
     
-//     if(botonFav.innerText == 'remove'){
-//         botonFav.innerText= '';
-//         botonFav.innerText= 'add to favs';
-//         botonFav.style.background = '#00b3dc';
-//         botonFav.style.color = '#fff';
-//         localStorage.removeItem("Favorito")
-//     }else{
-//         botonFav.innerText= '';
-//         botonFav.innerText= 'remove';
-//         botonFav.style.background = '#fff';
-//         botonFav.style.color = '#00b3dc';
-//         botonFav.style.border = '1px solid #00b3dc';
-//         localStorage.setItem("Favorito", "guardado en favoritos")
-//     }
-// })
+
 }
-function funcionClick(id) {
-    localStorage.setItem("Favorito", id)
-        if(id.innerText == 'remove'){
-        id.innerText= '';
-        id.innerText= 'add to favs';
-        id.style.background = '#00b3dc';
-        id.style.color = '#fff';
-        localStorage.removeItem("Favorito")
-    }else{
-        id.innerText= '';
-        id.innerText= 'remove';
-        id.style.background = '#fff';
-        id.style.color = '#00b3dc';
-        id.style.border = '1px solid #00b3dc';
-        localStorage.setItem("Favorito", "guardado en favoritos")
-    }
-}
+
 function funcionBuscar(){
     const value = barraBusqueda.value;
     const busquedaFiltrada = arrayDePokemonEnPantalla.filter(pokeBuscado=>{

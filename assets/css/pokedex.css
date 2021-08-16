@@ -81,6 +81,19 @@ input:focus {
     text-align: center;
     cursor: pointer;
 }
+.remove{
+    height: 40px;
+    width: 120px;
+    font-size: 1em;
+    border-radius: 20px;
+    border: none;
+    padding:5px 15px;
+    background: #fff;
+    color: #00b3dc;
+    border: 1px solid #00b3dc;
+    text-align: center;
+    cursor: pointer;
+}
 .button_style:active{
     background: #00647a;
 }
@@ -119,6 +132,8 @@ img{
     background-color: #7ddcf141;
     border-radius: 100%;
 }
+
+
 
 @media (max-width: 1024px){
     .header_nav_bar_list{
