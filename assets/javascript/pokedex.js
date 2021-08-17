@@ -12,27 +12,28 @@ espacioParaCadaPokemon.appendChild(cargando);
 
 async function llamarPokemon() {
     
-    console.log('loading');
+    
     for(let i = 1 ; i < 152 ; i++ ){
-        const urlApi = `https://pokeapi.co/api/v2/pokemon/${i}`
-        const respuestaApi = await fetch(urlApi)
-        const unPokemon = await respuestaApi.json()
+        console.log('loading',[i]);
+        const urlApi = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        const respuestaApi = await fetch(urlApi);
+        const unPokemon = await respuestaApi.json();
             arrayDePokemonEnPantalla.push({
                 image: unPokemon.sprites.front_default,
                 id: unPokemon.id,
                 name: unPokemon.name,
                 type: unPokemon.types[0].type.name,
                 favorito: false
-            })
+            });
     };
     console.log('load complete');
     cargando.style.display = 'none';
-
+    marcarFavoritos(arrayDePokemonEnPantalla);
     representarPokemon(arrayDePokemonEnPantalla);
 };
 
 function representarPokemon(arrayDePokemons) {
-    espacioParaCadaPokemon.innerHTML = ""
+    espacioParaCadaPokemon.innerHTML = "";
 
     arrayDePokemons.forEach(pokemon => {
         espacioParaCadaPokemon.innerHTML += 
@@ -46,7 +47,7 @@ function representarPokemon(arrayDePokemons) {
        </div>
         `
     });
-}
+};
 
 function funcionStorage(id){
     let newArray = arrayDePokemonEnPantalla.map(unPokemon => {
@@ -56,16 +57,32 @@ function funcionStorage(id){
         }else{
             return unPokemon
         }
-    })
+    });
     let filtrados = newArray.filter(unPokemon =>
         unPokemon.favorito === true
-    )
-    console.log(filtrados);
+    );
     representarPokemon(newArray);
     localStorage.setItem("pokemonFav", JSON.stringify(filtrados));
-    
 
-}
+};
+function marcarFavoritos(array){
+    let pokeFavLS = JSON.parse(localStorage.getItem('pokemonFav'));
+    if(pokeFavLS === null){
+        console.log('Ningun Pokemon esta en la lista de favoritos')
+    }else{
+        // pokeFavLS.forEach(element => {
+        //     arrayDePokemonEnPantalla.map(()=>{
+        //         if(pokeFavLS.id === array.id){
+        //             unPokemon.favorito = !unPokemon.favorito;
+        //         }else{
+        //             console.log('?');
+        //         }
+        //     })
+        // });
+        representarPokemon(pokeFavLS)
+    }
+    console.log(pokeFavLS)
+};
 
 function funcionBuscar(){
     const value = barraBusqueda.value;
@@ -74,7 +91,7 @@ function funcionBuscar(){
         pokeBuscado.type.includes(value)
     });
     representarPokemon(busquedaFiltrada);
-}
+};
 
 
 botonBuscar.addEventListener('click',funcionBuscar);
@@ -82,7 +99,7 @@ botonBuscar.addEventListener('click',funcionBuscar);
 barraBusqueda.addEventListener('keyup', () => {
     if(barraBusqueda.value.length === 0){
         representarPokemon(arrayDePokemonEnPantalla)
-    }
-})
+    };
+});
 
-llamarPokemon()
+llamarPokemon();
