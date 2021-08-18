@@ -13,7 +13,7 @@ espacioParaCadaPokemon.appendChild(cargando);
 async function llamarPokemon() {
     
     
-    for(let i = 1 ; i < 20 ; i++ ){
+    for(let i = 1 ; i < 152 ; i++ ){
         console.log('loading',[i]);
         const urlApi = `https://pokeapi.co/api/v2/pokemon/${i}`;
         const respuestaApi = await fetch(urlApi);
