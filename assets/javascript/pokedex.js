@@ -13,7 +13,7 @@ espacioParaCadaPokemon.appendChild(cargando);
 async function llamarPokemon() {
     
     
-    for(let i = 1 ; i < 152 ; i++ ){
+    for(let i = 1 ; i < 20 ; i++ ){
         console.log('loading',[i]);
         const urlApi = `https://pokeapi.co/api/v2/pokemon/${i}`;
         const respuestaApi = await fetch(urlApi);
@@ -28,8 +28,8 @@ async function llamarPokemon() {
     };
     console.log('load complete');
     cargando.style.display = 'none';
-    marcarFavoritos(arrayDePokemonEnPantalla);
     representarPokemon(arrayDePokemonEnPantalla);
+    marcarFavoritos(arrayDePokemonEnPantalla);
 };
 
 function representarPokemon(arrayDePokemons) {
@@ -65,23 +65,21 @@ function funcionStorage(id){
     localStorage.setItem("pokemonFav", JSON.stringify(filtrados));
 
 };
+
 function marcarFavoritos(array){
     let pokeFavLS = JSON.parse(localStorage.getItem('pokemonFav'));
     if(pokeFavLS === null){
         console.log('Ningun Pokemon esta en la lista de favoritos')
     }else{
-        // pokeFavLS.forEach(element => {
-        //     arrayDePokemonEnPantalla.map(()=>{
-        //         if(pokeFavLS.id === array.id){
-        //             unPokemon.favorito = !unPokemon.favorito;
-        //         }else{
-        //             console.log('?');
-        //         }
-        //     })
-        // });
-        representarPokemon(pokeFavLS)
+        for (let i = 0; i < pokeFavLS.length; i++) {
+           for (let a = 0; a < array.length; a++){
+            if(array[a].id === pokeFavLS[i].id){
+                array[a].favorito = true
+            }
+           }
+        }
     }
-    console.log(pokeFavLS)
+    representarPokemon(array)
 };
 
 function funcionBuscar(){
